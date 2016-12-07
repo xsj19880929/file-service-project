@@ -1,0 +1,18 @@
+<div class="body">
+  <ol class="breadcrumb">
+    <li><a href="#" ui-sref="file.list">首页</a></li>
+    <li class="active">文件列表</li>
+  </ol>
+  <div class="col-lg-6 search-bar">
+    <div class="input-group">
+      <input type="text" class="form-control" ng-model="searchText" placeholder="输入搜索内容">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="search()">搜索</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <div ui-grid="fileOptions" ui-grid-pagination class="grid"></div>
+  </div>
+</div>

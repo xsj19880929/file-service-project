@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <property name="app.name" value="file"/>
+
+    <appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <file>/opt/app/logs/${app.name}/${app.name}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/opt/app/logs/${app.name}/${app.name}.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} - %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="trace" class="core.framework.log.TraceAppender">
+        <logFolder>/opt/app/logs/${app.name}</logFolder>
+    </appender>
+
+    <appender name="action" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/opt/app/logs/${app.name}/${app.name}-action.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/opt/app/logs/${app.name}/${app.name}-action.%d{yyyy-MM-dd_HH}.log.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%message%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="action" additivity="false" level="INFO">
+        <appender-ref ref="action"/>
+    </logger>
+
+    <logger name="org.springframework" level="INFO"/>
+
+    <root level="debug">
+        <appender-ref ref="info"/>
+        <appender-ref ref="trace"/>
+    </root>
+</configuration>

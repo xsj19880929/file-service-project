@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="info" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <layout>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="trace" class="core.framework.log.TraceAppender">
+        <layout>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="action" class="ch.qos.logback.core.ConsoleAppender">
+        <layout>
+            <pattern>%message%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="core.framework.log.ActionLogger" additivity="false" level="INFO">
+        <appender-ref ref="action" />
+    </logger>
+
+    <logger name="org.springframework" level="INFO" />
+    <logger name="org.apache.http" level="INFO" />
+
+    <root level="INFO">
+        <appender-ref ref="info" />
+        <appender-ref ref="trace" />
+    </root>
+</configuration>

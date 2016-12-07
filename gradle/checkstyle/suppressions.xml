@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suppressions PUBLIC "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+        "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+<suppressions>
+    <suppress checks="ParameterNumber" files="DateUtils.java"/>
+    <suppress checks="ParameterNumberCheck" files="DomainUpdateContext.java"/>
+    <suppress checks="UncommentedMain" files="Main.java"/>
+    <suppress checks="FileLength" files="Shipment.java"/>
+    <suppress checks="FileLength" files="ShipmentDataConstruct.java"/>
+    <suppress checks="NestedTryDepthCheck" files="WorkBookCreator.java"/>
+    <suppress checks="MethodLength" files="DocumentConfigGenerator.java"/>
+</suppressions>

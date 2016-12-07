@@ -1,0 +1,12 @@
+<div class="page">
+  <div class="navbar-default sidebar">
+    <div class="sidebar-nav navbar-collapse" collapse="navCollapsed">
+      <ul class="nav">
+        <li ng-class="{active : $state.includes('file')}"><a ui-sref="file.list">文件列表</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="main" ui-view>
+  </div>
+</div>
